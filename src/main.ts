@@ -1,6 +1,10 @@
-import { createApp } from 'vue';
-import App from './App.vue';
+import { createApp, App } from 'vue';
+import RootApp from './App.vue';
 import router from './router';
 import store from './store';
+import { globalRegister } from '@/global';
+import 'element-plus/theme-chalk/base.css';
 
-createApp(App).use(store).use(router).mount('#app');
+const app = createApp(RootApp);
+
+app.use(globalRegister).use(store).use(router).mount('#app');
