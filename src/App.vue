@@ -1,9 +1,9 @@
 <template>
-  <div id="nav">
-    <h2>{{ $store.state.name }}</h2>
-    <router-link to="/main">main</router-link> |
-    <router-link to="/login">login</router-link>
-  </div>
+  <!-- <div id="nav"> -->
+  <!-- <h2>{{ $store.state.name }}</h2> -->
+  <!-- <router-link to="/main">main</router-link> -->
+  <!-- <router-link to="/login">login</router-link> -->
+  <!-- </div> -->
   <router-view />
 </template>
 
