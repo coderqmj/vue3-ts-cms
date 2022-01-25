@@ -8,7 +8,7 @@
             <el-icon><avatar /></el-icon>账号登录
           </span>
         </template>
-        <LoginAccount />
+        <LoginAccount ref="accountRef" />
       </el-tab-pane>
       <el-tab-pane>
         <template #label>
@@ -32,7 +32,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@vue/runtime-core';
+import { defineComponent, ref } from '@vue/runtime-core';
 import LoginAccount from './login-account.vue';
 import LoginPhone from './login-phone.vue';
 export default defineComponent({
@@ -41,8 +41,16 @@ export default defineComponent({
     LoginPhone
   },
   setup() {
+    const isKeepPassword = ref(true);
+    const accountRef = ref<InstanceType<typeof LoginAccount>>();
+    const handleLoginClick = () => {
+      console.log(accountRef.value);
+      accountRef.value?.loginAction(isKeepPassword.value);
+    };
     return {
-      message: '哈哈哈'
+      handleLoginClick,
+      isKeepPassword,
+      accountRef
     };
   }
 });
